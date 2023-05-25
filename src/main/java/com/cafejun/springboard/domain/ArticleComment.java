@@ -1,13 +1,41 @@
 package com.cafejun.springboard.domain;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import java.time.LocalDate;
 
+@Getter
+@ToString(callSuper = true)
+@Table(indexes = {
+        @Index(columnList = "content"),
+        @Index(columnList = "createdAt"),
+        @Index(columnList = "createdBy")
+})
+@Entity
 public class ArticleComment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Setter
+    @ManyToOne(optional = false)
     private Article article;
+    @Setter
+
     private String content;
-    private LocalDate createdAt;
-    private String createdBy;
-    private LocalDate modifiedAt;
-    private String modifiedBy;
+    @CreatedDate
+    @Column(nullable = false) private LocalDate createdAt;
+    @CreatedBy
+    @Column(nullable = false,length = 100) private String createdBy;
+    @LastModifiedDate
+    @Column(nullable = false) private LocalDate modifiedAt;
+    @LastModifiedBy
+    @Column(nullable = false,length = 100) private String modifiedBy;
+
 }
