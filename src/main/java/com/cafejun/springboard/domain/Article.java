@@ -24,7 +24,7 @@ import java.util.Set;
     }
 )
 @Entity
-public class Article {
+public class Article extends AuditingField{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -35,11 +35,11 @@ public class Article {
     @OneToMany(mappedBy = "article",cascade = CascadeType.ALL)
     private Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
-    @Setter @Column(nullable = true) private String hashtag;
-    @CreatedDate @Column(nullable = false) private LocalDate createdAt;
-    @CreatedBy @Column(nullable = false,length = 100) private String createdBy;
-    @LastModifiedDate @Column(nullable = false) private LocalDate modifiedAt;
-    @LastModifiedBy @Column(nullable = false,length = 100) private String modifiedBy;
+//    @Setter @Column(nullable = true) private String hashtag;
+//    @CreatedDate @Column(nullable = false) private LocalDate createdAt;
+//    @CreatedBy @Column(nullable = false,length = 100) private String createdBy;
+//    @LastModifiedDate @Column(nullable = false) private LocalDate modifiedAt;
+//    @LastModifiedBy @Column(nullable = false,length = 100) private String modifiedBy;
 
     protected Article() {}
 
@@ -47,7 +47,7 @@ public class Article {
         this.title = title;
         this.content = content;
     }
-    public Article of(String title, String content) {
+    public static Article of(String title, String content) {
         return new Article(title,content);
     }
 

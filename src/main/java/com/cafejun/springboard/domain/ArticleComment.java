@@ -19,7 +19,7 @@ import java.time.LocalDate;
         @Index(columnList = "createdBy")
 })
 @Entity
-public class ArticleComment {
+public class ArticleComment extends AuditingField{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,13 +29,13 @@ public class ArticleComment {
     @Setter
 
     private String content;
-    @CreatedDate
-    @Column(nullable = false) private LocalDate createdAt;
-    @CreatedBy
-    @Column(nullable = false,length = 100) private String createdBy;
-    @LastModifiedDate
-    @Column(nullable = false) private LocalDate modifiedAt;
-    @LastModifiedBy
-    @Column(nullable = false,length = 100) private String modifiedBy;
+//    @CreatedDate
+//    @Column(nullable = false) private LocalDate createdAt;
+//    @CreatedBy
+//    @Column(nullable = false,length = 100) private String createdBy;
+//    @LastModifiedDate
+//    @Column(nullable = false) private LocalDate modifiedAt;
+//    @LastModifiedBy
+//    @Column(nullable = false,length = 100) private String modifiedBy;
 
 }
