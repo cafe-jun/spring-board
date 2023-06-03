@@ -41,7 +41,7 @@ class JpaRepositoryTest {
         // Then
         assertThat(articles)
                 .isNotNull()
-                .hasSize(0); // classpath:resources/data.sql 참조
+                .hasSize(123); // classpath:resources/data.sql 참조
     }
 
     @Test

@@ -26,10 +26,11 @@ import java.util.Set;
 @Entity
 public class Article extends AuditingField{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Setter @Column(nullable = false) private String title;
     @Setter @Column(nullable = false,length = 10000) private String content;
+    @Setter @Column(nullable = true) private String hashtag;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "article",cascade = CascadeType.ALL)

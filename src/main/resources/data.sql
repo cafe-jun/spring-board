@@ -1,5 +1,4 @@
--- article comment data init
-
+-- article data init
 
 insert into article (title, content, hashtag, created_at, modified_at, created_by, modified_by) values ('Auguste', 'integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse', 'et ultrices posuere cubilia curae mauris', '2023-03-20 20:09:54', '2022-04-27 06:09:15', 'Hombre', 'C-Class');
 insert into article (title, content, hashtag, created_at, modified_at, created_by, modified_by) values ('Lynnelle', 'donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer', 'eget vulputate ut ultrices vel augue vestibulum', '2022-10-12 12:36:35', '2022-06-07 02:32:58', 'Equus', 'Escape');
