@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9d58508-e077-490b-9294-1cde9dcb8164" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cafejun/springboard/domain/Article.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/cafejun/springboard/domain/ArticleComment.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/cafejun/springboard/repository/ArticleCommentRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/cafejun/springboard/repository/ArticleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/cafejun/springboard/repository/JpaRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +132,7 @@
     </option>
     <option name="openRunningConfigInTab" value="true" />
   </component>
-  <component name="RunManager" selected="Application.SpringBoardApplication">
+  <component name="RunManager" selected="Gradle.JpaRepositoryTest">
     <configuration name="SpringBoardApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cafejun.springboard.SpringBoardApplication" />
       <module name="spring-board.main" />
@@ -246,7 +244,6 @@
         <item itemvalue="Gradle.JpaRepositoryTest.givenTestData_whenSelecting_thenWorksFine" />
         <item itemvalue="Gradle.JpaRepositoryTest.givenTestData_whenInserting_thenWorksFine" />
         <item itemvalue="Gradle.JpaRepositoryTest" />
-        <item itemvalue="Application.SpringBoardApplication" />
       </list>
     </recent_temporary>
   </component>
