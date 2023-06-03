@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9d58508-e077-490b-9294-1cde9dcb8164" name="Changes" comment="">
+<<<<<<< main
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cafejun/springboard/domain/Article.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cafejun/springboard/domain/ArticleComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cafejun/springboard/repository/ArticleCommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cafejun/springboard/repository/ArticleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/cafejun/springboard/repository/JpaRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+>>>>>>> gitflow-feature-stash: #5-generate-api
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +70,25 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+<<<<<<< main
                     <option name="branchName" value="feature/#8-database" />
                     <option name="lastUsedInstant" value="1684798482" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
                     <option name="lastUsedInstant" value="1684798312" />
+=======
+                    <option name="branchName" value="feature/#5-generate-api" />
+                    <option name="lastUsedInstant" value="1685755584" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1685596054" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/#8-database" />
+                    <option name="lastUsedInstant" value="1684798482" />
+>>>>>>> gitflow-feature-stash: #5-generate-api
                   </RecentBranch>
                 </list>
               </option>
@@ -122,7 +147,11 @@
     </option>
     <option name="openRunningConfigInTab" value="true" />
   </component>
+<<<<<<< main
   <component name="RunManager" selected="Gradle.JpaRepositoryTest.givenTestData_whenDeleting_thenWorksFine">
+=======
+  <component name="RunManager" selected="Application.SpringBoardApplication">
+>>>>>>> gitflow-feature-stash: #5-generate-api
     <configuration name="SpringBoardApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cafejun.springboard.SpringBoardApplication" />
       <module name="spring-board.main" />
@@ -231,9 +260,16 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.JpaRepositoryTest.givenTestData_whenDeleting_thenWorksFine" />
+<<<<<<< main
         <item itemvalue="Gradle.JpaRepositoryTest.givenTestData_whenInserting_thenWorksFine" />
         <item itemvalue="Gradle.JpaRepositoryTest.givenTestData_whenSelecting_thenWorksFine" />
         <item itemvalue="Gradle.JpaRepositoryTest" />
+=======
+        <item itemvalue="Gradle.JpaRepositoryTest.givenTestData_whenSelecting_thenWorksFine" />
+        <item itemvalue="Gradle.JpaRepositoryTest.givenTestData_whenInserting_thenWorksFine" />
+        <item itemvalue="Gradle.JpaRepositoryTest" />
+        <item itemvalue="Application.SpringBoardApplication" />
+>>>>>>> gitflow-feature-stash: #5-generate-api
       </list>
     </recent_temporary>
   </component>
