@@ -27,15 +27,6 @@ public class ArticleComment extends AuditingField{
     @ManyToOne(optional = false)
     private Article article;
     @Setter
-
     private String content;
-//    @CreatedDate
-//    @Column(nullable = false) private LocalDate createdAt;
-//    @CreatedBy
-//    @Column(nullable = false,length = 100) private String createdBy;
-//    @LastModifiedDate
-//    @Column(nullable = false) private LocalDate modifiedAt;
-//    @LastModifiedBy
-//    @Column(nullable = false,length = 100) private String modifiedBy;
 
 }

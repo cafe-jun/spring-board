@@ -26,20 +26,15 @@ import java.util.Set;
 @Entity
 public class Article extends AuditingField{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Setter @Column(nullable = false) private String title;
     @Setter @Column(nullable = false,length = 10000) private String content;
+    @Setter @Column(nullable = true) private String hashtag;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "article",cascade = CascadeType.ALL)
     private Set<ArticleComment> articleComments = new LinkedHashSet<>();
-
-//    @Setter @Column(nullable = true) private String hashtag;
-//    @CreatedDate @Column(nullable = false) private LocalDate createdAt;
-//    @CreatedBy @Column(nullable = false,length = 100) private String createdBy;
-//    @LastModifiedDate @Column(nullable = false) private LocalDate modifiedAt;
-//    @LastModifiedBy @Column(nullable = false,length = 100) private String modifiedBy;
 
     protected Article() {}
 
