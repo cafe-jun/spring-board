@@ -1,3 +1,4 @@
+
 -- article data init
 
 insert into article (title, content, hashtag, created_at, modified_at, created_by, modified_by) values ('Auguste', 'integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse', 'et ultrices posuere cubilia curae mauris', '2023-03-20 20:09:54', '2022-04-27 06:09:15', 'Hombre', 'C-Class');
