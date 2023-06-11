@@ -49,7 +49,7 @@ class JpaRepositoryTest {
     void givenTestData_whenInserting_thenWorksFine() {
         //Given
         long previousCount = articleRepository.count();
-        Article article = Article.of( "new article", "new content");
+        Article article = Article.of( "new article", "new content","#java");
         
         //When
         articleRepository.save(article);
