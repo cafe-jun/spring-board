@@ -5,6 +5,7 @@ import com.cafejun.springboard.domain.UserAccount;
 import com.cafejun.springboard.domain.type.SearchType;
 import com.cafejun.springboard.dto.ArticleDto;
 import com.cafejun.springboard.dto.ArticleUpdateDto;
+import com.cafejun.springboard.dto.ArticleWithCommentsDto;
 import com.cafejun.springboard.repository.ArticleRepository;
 import com.cafejun.springboard.repository.UserAccountRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -41,15 +42,19 @@ public class ArticleService {
 
         };
     }
+
+    @Transactional(readOnly = true)
+    public ArticleWithCommentsDto getArticleWithComments(Long articleId) {
+        return articleRepository.findById(articleId)
+                .map(ArticleWithCommentsDto::from)
+                .orElseThrow(() -> new EntityNotFoundException("게시글이 없습니다 - articleId: " + articleId));
+    }
     @Transactional(readOnly = true)
     public ArticleDto getArticle(Long articleId) {
         return articleRepository.findById(articleId)
                 .map(ArticleDto::from)
                 .orElseThrow(() -> new EntityNotFoundException("게시글이 없습니다 - articleId: {}"+ articleId));
     }
-
-
-
     public void saveArticle(ArticleDto dto) {
         UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountDto().userId());
         articleRepository.save(dto.toEntity(userAccount));
@@ -71,6 +76,18 @@ public class ArticleService {
 
     public void deleteArticle(Long articleId,String userId) {
         articleRepository.deleteByIdAndUserAccount_UserId(articleId,userId);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ArticleDto> searchArticlesViaHashtag(String hashtag,Pageable pageable) {
+        if(hashtag == null || hashtag.isBlank()) {
+            return Page.empty(pageable);
+        }
+        return articleRepository.findByHashtag(hashtag,pageable).map(ArticleDto::from);
+    }
+
+    public long getArticleCount() {
+        return articleRepository.count();
     }
     public List<String> getHashtags() {
         return articleRepository.findAllDistinctHashtags();
