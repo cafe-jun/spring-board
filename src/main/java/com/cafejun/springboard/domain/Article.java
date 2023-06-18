@@ -28,22 +28,28 @@ public class Article extends AuditingField{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Setter @ManyToOne(optional = false) @JoinColumn(name = "userId") private UserAccount userAccount;
+
     @Setter @Column(nullable = false) private String title;
     @Setter @Column(nullable = false,length = 10000) private String content;
     @Setter @Column(nullable = true) private String hashtag;
 
     @ToString.Exclude
+    @OrderBy("createdAt DESC")
     @OneToMany(mappedBy = "article",cascade = CascadeType.ALL)
     private Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
     protected Article() {}
 
-    private Article(String title, String content) {
+    private Article(UserAccount userAccount,String title, String content,String hashtag) {
+        this.userAccount = userAccount;
         this.title = title;
         this.content = content;
+        this.hashtag = hashtag;
     }
-    public static Article of(String title, String content) {
-        return new Article(title,content);
+    public static Article of(UserAccount userAccount,String title, String content,String hashtag) {
+        return new Article(userAccount,title,content,hashtag);
     }
 
     // lombok 으로 EqualHashCode를 사용하지 않는 이유
