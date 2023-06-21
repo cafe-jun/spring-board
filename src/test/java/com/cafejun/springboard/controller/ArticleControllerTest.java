@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
 @DisplayName("View 컨트롤러 - 게시글")
-@Import(SecurityConfig.class)
+@Import({SecurityConfig.class,})
 @WebMvcTest(ArticleController.class) //
 class ArticleControllerTest {
 
@@ -114,15 +114,56 @@ class ArticleControllerTest {
         then(paginationService).should().getPaginationBarNumbers(pageable.getPageNumber(), Page.empty().getTotalPages());
 
     }
-//@DisplayName("[view][GET] 게시글 해시태그 검색 페이지 - 정상 호출")
-//@Test
-//void givenNothing_whenRequestingArticleSearchHashtagView_thenReturnsArticleSearchHashtagView() throws Exception {
-//    //given
-    
+@DisplayName("[view][GET] 게시글 해시태그 검색 페이지 - 정상 호출")
+@Test
+void givenNothing_whenRequestingArticleSearchHashtagView_thenReturnsArticleSearchHashtagView() throws Exception {
+    //given
+    List<String> hashtags = List.of("#java","#spring","#boot");
+    given(articleService.searchArticlesViaHashtag(eq(null),any(Pageable.class))).willReturn(Page.empty());
+    given(articleService.getHashtags()).willReturn(hashtags);
+    given(paginationService.getPaginationBarNumbers(anyInt(),anyInt())).willReturn(List.of(1,2,3,4,5));
     //when
-    
+    mvc.perform(get("/articles/search-hashtag"))
+            .andExpect(status().isOk())
+            .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+            .andExpect(view().name("articles/search-hashtag"))
+            .andExpect(model().attribute("articles",Page.empty()))
+            .andExpect(model().attributeExists("paginationBarNumbers"))
+            .andExpect(model().attribute("searchType", SearchType.HASHTAG));
+    then(articleService).should().searchArticlesViaHashtag(eq(null),any(Pageable.class));
+    then(articleService).should().getHashtags();
+    then(paginationService).should().getPaginationBarNumbers(anyInt(),anyInt());
     //then
-//}
+}
+
+    @DisplayName("[view][GET] 게시글 해시태그 검색 페이지 - 정상 호출, 해시태그 입력")
+    @Test
+    void givenHashtag_whenRequestingArticleSearchHashtagView_thenReturnsArticleSearchHashtagView() throws Exception {
+        //given
+        String hashtag = "#java";
+        List<String> hashtags = List.of("#java", "#spring", "#boot");
+        given(articleService.searchArticlesViaHashtag(eq(hashtag),any(Pageable.class))).willReturn(Page.empty());
+        given(articleService.getHashtags()).willReturn(hashtags);
+        given(paginationService.getPaginationBarNumbers(anyInt(),anyInt())).willReturn(List.of(1,2,3,4,5));
+        //when
+        // 데이터 있나 없나 확인 가능
+        mvc.perform(
+                get("/articles/search-hashtag")
+                        .queryParam("searchValue",hashtag)
+            )
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andExpect(view().name("articles/search-hashtag"))
+                .andExpect(model().attribute("articles", Page.empty()))
+                .andExpect(model().attribute("hashtags", hashtags))
+                .andExpect(model().attributeExists("paginationBarNumbers"))
+                .andExpect(model().attribute("searchType", SearchType.HASHTAG));
+
+        then(articleService).should().searchArticlesViaHashtag(eq(hashtag),any(Pageable.class));
+        then(articleService).should().getHashtags();
+        then(paginationService).should().getPaginationBarNumbers(anyInt(),anyInt());
+        //then
+    }
 //    @DisplayName("[view][GET] 게시글 상세 페이지 - 정상호출 ")
 //    @Test
 //    void givenPagingAndSortingParams_whenSearchingArticlesView_thenReturnsArticlesView() throws Exception {
@@ -152,18 +193,5 @@ class ArticleControllerTest {
 //
 //        //then
 //    }
-//    @DisplayName("[view][GET] 게시글 해시태그 검색 페이지 - 정상 호출, 해시태그 입력")
-//    @Test
-//    void givenHashtag_whenRequestingArticleSearchHashtagView_thenReturnsArticleSearchHashtagView() throws Exception {
-//        //given
-//
-//        //when
-//        // 데이터 있나 없나 확인 가능
-//        mvc.perform(get("/articles/search-hashtag"))
-//                .andExpect(status().isOk())
-//                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
-//                .andExpect(model().attributeExists("articles/search-hashtag"));
-//
-//        //then
-//    }
+
 }
