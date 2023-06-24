@@ -1,4 +1,4 @@
-package com.cafejun.springboard.util;
+package com.cafejun.springboard.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
