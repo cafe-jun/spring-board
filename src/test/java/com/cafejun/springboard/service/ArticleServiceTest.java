@@ -4,7 +4,6 @@ import com.cafejun.springboard.domain.Article;
 import com.cafejun.springboard.domain.UserAccount;
 import com.cafejun.springboard.domain.type.SearchType;
 import com.cafejun.springboard.dto.ArticleDto;
-import com.cafejun.springboard.dto.ArticleUpdateDto;
 import com.cafejun.springboard.dto.ArticleWithCommentsDto;
 import com.cafejun.springboard.dto.UserAccountDto;
 import com.cafejun.springboard.repository.ArticleRepository;
